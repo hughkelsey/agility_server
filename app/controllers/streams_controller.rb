@@ -1,6 +1,8 @@
 class StreamsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  include NotFound
+
   def create
     token = OPENTOK.generate_token(event.session_id)
     stream = event.streams.create(token: token)
@@ -21,10 +23,11 @@ class StreamsController < ApplicationController
   private
 
   def event
-    @event ||= Event.find_by_event_id(params[:token_id])
+    @event ||= Event.find_by_event_id!(params[:token_id])
   end
 
   def stream_params
     params.require(:stream).permit(:name)
   end
+
 end

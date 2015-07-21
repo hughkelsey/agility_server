@@ -1,8 +1,9 @@
 class TokenController < ApplicationController
   skip_before_action :verify_authenticity_token
+  include NotFound
 
   def show
-    event = Event.find_by_event_id(params[:id])
+    event = Event.find_by_event_id!(params[:id])
     render json: event
   end
 

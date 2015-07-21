@@ -18,6 +18,12 @@ describe StreamsController do
       get :show, token_id: event.event_id, id: stream.id
       expect(response).to be_ok
     end
+    context "not found" do
+      it "should return a 404" do
+        get :show, token_id: event.event_id, id: '123456789'
+        expect(response.status).to eql 404
+      end
+    end
   end
   describe "update" do
     let(:stream) { event.streams.create }
