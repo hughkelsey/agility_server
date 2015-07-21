@@ -7,6 +7,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem "opentok", "~> 2.3"
+gem 'active_model_serializers', '~> 0.10.0.rc2'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -41,6 +44,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
   gem 'rubocop'
 end
 group :production do
