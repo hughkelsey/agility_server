@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :session_id, :api_key, :event_id
+  attributes :session_id, :api_key, :event_id
 
   has_many :streams
 
