@@ -15,4 +15,10 @@ class EventsController < ApplicationController
     event = Event.create_with_event_id(session_id: opentok_session_id)
     redirect_to event
   end
+
+  def stream
+    @event = Event.find_by_event_id!(params[:id])
+    @token = OPENTOK.generate_token @event.session_id, role: :moderator
+    @stream_id = params[:stream_id]
+  end
 end

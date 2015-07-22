@@ -29,15 +29,16 @@
   session.connect(apiKey, token);
 
 #publisher
-
-%ul#subscribers
-  %li.stream
-    %img{ src: 'https://placeimg.com/640/480/any', data: {streamId: n = 1} }
-  %li.stream
-    %img{ src: 'https://placeimg.com/640/480/any', data: {streamId: n += 1} }
-  %li.stream
-    %img{ src: 'https://placeimg.com/640/480/any', data: {streamId: n += 1} }
-  %li.stream
-    %img{ src: 'https://placeimg.com/640/480/any', data: {streamId: n += 1} }
-  %li.stream
-    %img{ src: 'https://placeimg.com/640/480/any', data: {streamId: n += 1} }
+.row
+  .columns
+    %ul#subscribers
+      %li.stream{ data: { streamId: n = 1 } }
+        %img{ src: 'https://placeimg.com/640/480/any' }
+      %li.stream{ data: { streamId: n += 1 } }
+        %img{ src: 'https://placeimg.com/640/480/any' }
+      %li.stream{ data: { streamId: n += 1 } }
+        %img{ src: 'https://placeimg.com/640/480/any' }
+      %li.stream{ data: { streamId: n += 1 } }
+        %img{ src: 'https://placeimg.com/640/480/any' }
+      %li.stream{ data: { streamId: n += 1 } }
+        %img{ src: 'https://placeimg.com/640/480/any' }
