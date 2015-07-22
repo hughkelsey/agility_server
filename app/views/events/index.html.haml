@@ -1,0 +1,8 @@
+.row
+  .columns
+    = button_to "Create a Session", events_path, class: 'button'
+.row
+  .columns
+    = form_tag events_path, method: :get do
+      = text_field_tag :id
+      = submit_tag "Join", class: 'button'

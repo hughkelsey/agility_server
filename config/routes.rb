@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+
+  root to: 'events#index'
   devise_for :users
 
+  resources :events
   resources :token, :controller=>"token" do
     resources :streams
   end

@@ -1,6 +1,5 @@
 class StreamsController < ApplicationController
   skip_before_action :verify_authenticity_token
-
   include NotFound
 
   def create

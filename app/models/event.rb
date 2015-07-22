@@ -12,6 +12,10 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def to_param
+    event_id
+  end
+
   private
 
   def generate_event_id
