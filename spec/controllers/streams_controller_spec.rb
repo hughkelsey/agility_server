@@ -8,7 +8,7 @@ describe StreamsController do
   end
   describe "create" do
     it "should require an event_id as the id" do
-      post :create, token_id: event.event_id
+      post :create, token_id: event.event_id, stream: {name: "foo"}
       expect(response).to be_ok
     end
   end
