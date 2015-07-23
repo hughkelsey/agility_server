@@ -5,6 +5,7 @@ class StreamsController < ApplicationController
   def create
     token = OPENTOK.generate_token(event.session_id)
     stream = event.streams.create(token: token)
+    stream.update_attributes(stream_params)
     render json: stream
   end
 
