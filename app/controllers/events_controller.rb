@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by_event_id!(params[:id])
+    @event = EventDecorator.new Event.find_by_event_id!(params[:id])
     @token = OPENTOK.generate_token @event.session_id, role: :moderator
   end
 
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def stream
-    @event = Event.find_by_event_id!(params[:id])
+    @event = EventDecorator.new(Event.find_by_event_id!(params[:id]))
     @token = OPENTOK.generate_token @event.session_id, role: :moderator
     @stream_id = params[:stream_id]
   end

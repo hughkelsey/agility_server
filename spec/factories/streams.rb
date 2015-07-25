@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :stream do
-    event nil
-token "MyString"
-name "MyString"
+    event
+    stream_id "MyString"
+    name "MyString"
   end
 
 end

@@ -9,6 +9,6 @@ describe StreamSerializer do
   subject {adaptor.as_json}
 
   it { should have_key(:event_id) }
-  it { should have_key(:token) }
+  it { should have_key(:stream_id) }
 
 end

@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "opentok", "~> 2.3"
 gem 'active_model_serializers', '~> 0.10.0.rc2'
+gem "draper", '~> 1.3'
 
 group :development, :test do
   gem 'byebug'

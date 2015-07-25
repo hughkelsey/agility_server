@@ -30,15 +30,11 @@
 
 #publisher
 .row
+  .columns.text-right
+    = "Session Code: #{@event.session_code}"
+.row
   .columns
     %ul#subscribers
-      %li.stream{ data: { streamId: n = 1 } }
-        %img{ src: 'https://placeimg.com/640/480/any' }
-      %li.stream{ data: { streamId: n += 1 } }
-        %img{ src: 'https://placeimg.com/640/480/any' }
-      %li.stream{ data: { streamId: n += 1 } }
-        %img{ src: 'https://placeimg.com/640/480/any' }
-      %li.stream{ data: { streamId: n += 1 } }
-        %img{ src: 'https://placeimg.com/640/480/any' }
-      %li.stream{ data: { streamId: n += 1 } }
-        %img{ src: 'https://placeimg.com/640/480/any' }
+      - 6.times do |n|
+        %li.stream{ data: { streamId: n } }
+          %img{ src: 'https://placeimg.com/640/480/arch' }

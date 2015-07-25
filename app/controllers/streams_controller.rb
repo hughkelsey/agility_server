@@ -3,19 +3,15 @@ class StreamsController < ApplicationController
   include NotFound
 
   def create
-    token = OPENTOK.generate_token(event.session_id)
-    stream = event.streams.create(token: token)
-    stream.update_attributes(stream_params)
+    stream = event.streams.create(stream_params)
     render json: stream
   end
 
   def show
-    stream = event.streams.find(params[:id])
     render json: stream
   end
 
   def update
-    stream = event.streams.find(params[:id])
     stream.update_attributes(stream_params)
     render json: stream
   end
@@ -26,8 +22,14 @@ class StreamsController < ApplicationController
     @event ||= Event.find_by_event_id!(params[:token_id])
   end
 
+  def stream
+    @stream ||= begin
+      event.streams.find_by_stream_id(params[:id]) || raise(ActiveRecord::RecordNotFound)
+    end
+  end
+
   def stream_params
-    params.require(:stream).permit(:name)
+    params.require(:stream).permit(:name, :stream_id)
   end
 
 end
