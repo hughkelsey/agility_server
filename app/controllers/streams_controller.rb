@@ -23,9 +23,7 @@ class StreamsController < ApplicationController
   end
 
   def stream
-    @stream ||= begin
-      event.streams.find_by_stream_id(params[:id]) || raise(ActiveRecord::RecordNotFound)
-    end
+    @stream ||= event.streams.find_by_stream_id!(params[:id])
   end
 
   def stream_params
