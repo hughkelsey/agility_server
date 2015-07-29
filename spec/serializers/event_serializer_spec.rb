@@ -1,6 +1,10 @@
 require 'spec_helper'
 
+
 describe EventSerializer do
+  before(:each) do
+    OPENTOK = double.as_null_object
+  end
   let(:event) { build_stubbed(:event) }
   let(:serializer) { EventSerializer.new(event) }
   let(:adaptor) { ActiveModel::Serializer::Adapter.create(serializer) }

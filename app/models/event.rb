@@ -8,12 +8,17 @@ class Event < ActiveRecord::Base
     begin
       event = self.create!(args)
     rescue ActiveRecord::RecordNotUnique
+      generate_event_id
       retry
     end
   end
 
   def to_param
     event_id
+  end
+
+  def token
+    @token ||= OPENTOK.generate_token(role: :publisher)
   end
 
   private
