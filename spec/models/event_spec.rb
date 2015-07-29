@@ -5,7 +5,7 @@ RSpec.describe Event, type: :model do
   it { should validate_uniqueness_of(:event_id) }
   it { should have_many(:streams) }
 
-  let(:event) { Event.create_with_event_id }
+  let(:event) { Event.create_with_session_id('foo') }
   let(:open_tok) { double(generate_token: 'token') }
 
   it "should set the event_id when created" do

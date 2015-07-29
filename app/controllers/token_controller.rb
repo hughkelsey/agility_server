@@ -11,7 +11,7 @@ class TokenController < ApplicationController
     opentok_session = OPENTOK.create_session
     opentok_session_id = opentok_session.session_id
 
-    event = Event.create_with_event_id(session_id: opentok_session_id)
+    event = Event.create_with_session_id(opentok_session_id)
     render json: event
   end
 
