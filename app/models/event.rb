@@ -3,8 +3,6 @@ class Event < ActiveRecord::Base
   validates_presence_of :session_id
   before_create :generate_event_id
 
-  has_many :streams
-
   def self.create_with_session_id(session_id)
     create_with_event_id(session_id: session_id)
   end
