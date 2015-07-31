@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
 
   it { should validate_uniqueness_of(:event_id) }
-  it { should have_many(:streams) }
 
   let(:event) { Event.create_with_session_id('foo') }
   let(:open_tok) { double(generate_token: 'token') }

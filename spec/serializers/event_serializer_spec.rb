@@ -2,22 +2,20 @@ require 'spec_helper'
 
 
 describe EventSerializer do
-  before(:each) do
-    OPENTOK = double.as_null_object
-  end
+  let(:open_tok) { double.as_null_object  }
   let(:event) { build_stubbed(:event) }
   let(:serializer) { EventSerializer.new(event) }
   let(:adaptor) { ActiveModel::Serializer::Adapter.create(serializer) }
+  
+  before(:each) do
+    stub_const("OPENTOK", open_tok)
+  end
 
   subject {adaptor.as_json}
 
   it { should have_key(:api_key) }
   it { should have_key(:session_id) }
-  it { should have_key(:streams)}
   it { should have_key(:event_id)}
+  it { should have_key(:token)}
 
-  context 'streams' do
-    subject {adaptor.as_json[:streams]}
-    it {should be_empty}
-  end
 end
