@@ -10,20 +10,19 @@ gem 'jbuilder', '~> 2.0'
 gem "opentok", "~> 2.3"
 gem 'active_model_serializers', '~> 0.10.0.rc2'
 gem "draper", '~> 1.3'
+gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
 gem 'devise'
 gem 'devise_invitable'
 gem 'figaro', '>= 1.0.0.rc1'
-gem 'foundation-rails'
-gem 'haml-rails'
 gem 'pg'
 gem 'pundit'
-gem 'simple_form'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
