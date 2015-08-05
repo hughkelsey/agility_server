@@ -8,7 +8,7 @@ class TokenController < ApplicationController
   end
 
   def create
-    opentok_session = OPENTOK.create_session
+    opentok_session = OPENTOK.create_session(media_mode: :routed)
     opentok_session_id = opentok_session.session_id
 
     event = Event.create_with_session_id(opentok_session_id)
