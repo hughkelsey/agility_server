@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
 
   def self.create_with_event_id(args = {})
     begin
-      event = self.create!(args)
+      self.create!(args)
     rescue ActiveRecord::RecordNotUnique
       generate_event_id
       retry
@@ -27,6 +27,6 @@ class Event < ActiveRecord::Base
   private
 
   def generate_event_id
-    self.event_id = SecureRandom.uuid.first(6).upcase
+    self.event_id = ('A'..'Z').to_a.sample(6).join
   end
 end
