@@ -131,7 +131,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    httparty (0.13.5)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     hub (1.12.4)
@@ -158,7 +158,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     nenv (0.2.0)
@@ -361,4 +361,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
